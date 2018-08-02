@@ -6,3 +6,4 @@ Join() - é quando a thread morre (junção) - não mata a thread, ele trava a t
 Sleep() - instrução de espera
 Interrupt() - faz com que todas as instruções de espera parem de esperar
 IsBackground - sempre false por padrão
+        {se estiver true: morre a mãe, morre todo mundo}

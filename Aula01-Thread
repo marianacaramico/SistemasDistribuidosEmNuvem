@@ -1,6 +1,6 @@
 Barreira - o limiar entre a certeza e a incerteza
   
-Fork() - é quando você inicia a thread (bifurcação)
+Start() - é quando você inicia a thread (bifurcação)
 Join() - é quando a thread morre (junção) - não mata a thread, ele trava a thread até ela morrer
         {vem de um estado que eu não sei se a thread está viva ou morta} ----- barreira
 Sleep() - instrução de espera

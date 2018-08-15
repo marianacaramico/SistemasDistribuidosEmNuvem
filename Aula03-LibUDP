@@ -11,3 +11,7 @@ Existe mais de 1 IP no mundo: sim
 { IP Porta }
 
 IP para descobrir o dispositivo e a porta para discobrir qual a aplicação
+
+UDP - usa soquete
+      soquete define o par de pares ip-portaorigem ip-portadestino
+      quando voce cria um soquete voce cria uma conexão

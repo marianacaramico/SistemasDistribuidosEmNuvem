@@ -1,0 +1,13 @@
+TCP - manda mensagem e espera confirmação - handshake
+UDP - manda e ta nem ai
+
+diferença entre os dois: best effort.
+  
+
+Existe mais de 1 IP no mundo: sim
+                    no mesmo domínio: não
+                    
+                    
+{ IP Porta }
+
+IP para descobrir o dispositivo e a porta para discobrir qual a aplicação

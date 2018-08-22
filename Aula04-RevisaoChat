@@ -1,0 +1,14 @@
+Windows Form - Protocolo UDP
+
+private LibUDP.UDPSocket socket;
+
+public FormChat() {
+  InitializeComponet();
+  socket = new LibUDP.UDPSocket(MensagemRecebida, 6200);        --- passo o método e a porta
+}
+
+private void MensagemRecebida(byte[] buffer, int size, string ip, int port) {
+  string mensagem = Encoding.UTF8.GetString(buffer, 0, )
+  txtHistorico.Text = DateTime.Now.ToLongTimeString() + " - Eu: " + mensagem
+  ..............
+}

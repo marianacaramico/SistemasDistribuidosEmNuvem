@@ -1,0 +1,7 @@
+variável sequência local: variável inteira que guarda o meu relógio lógico, ou seja, o relógio do processo atual
+variável maior externa: variável inteira que guarda o maior relógio lógico de todos que eu já recebi
+variável seção crítica requisitada: variável boolean só para o casa saber que foi requisitada (para te impedir de solicitar de novo)
+	é false quando você está dormindo, true quando quer e está trabalhando
+estou trabalhando if seção crítica = true && replies ainda não recebidos = 0
+replies diferidos: array[] de booleans, informando para quem ainda não dei o joinha - array[0] = c1, array[1] = c2, array[2] = c3
+	se não dei o joinha é porque estou trabalhando

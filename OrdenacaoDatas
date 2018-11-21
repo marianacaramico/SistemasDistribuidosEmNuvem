@@ -1,9 +1,3 @@
-for ( var i = 0; i < a.length; i++) {
-	console.log(d[i] + "/" + m[i] + "/" + a[i]);
-}
-	
-
-
 (function () {
     'use strict';
 

@@ -1,0 +1,55 @@
+for ( var i = 0; i < a.length; i++) {
+	console.log(d[i] + "/" + m[i] + "/" + a[i]);
+}
+	
+
+
+(function () {
+    'use strict';
+
+    const d = [ 1, 30, 5, 1, 1, 4 ];
+    const m = [ 5, 9 , 12, 1, 7, 5 ];
+    const a = [ 2000, 1990, 2007, 2018, 1990, 2000 ];
+
+    function x(i) {
+        let aux = d[i];
+        d[i] = d[i + 1];
+        d[i + 1] = aux;
+
+        aux = m[i];
+        m[i] = m[i + 1];
+        m[i + 1] = aux;
+
+        aux = a[i];
+        a[i] = a[i + 1];
+        a[i + 1] = aux;
+    }
+
+    (function bs() {
+        let iterations = 0;
+        for (let i = 0; i < a.length; i++) {
+            if (a[i] > a[i + 1]) {
+                x(i);
+                iterations++;
+            } else if(a[i] === a[i + 1]) {
+                if (m[i] > m[i + 1]) {
+                    x(i);
+                    iterations++;
+                } else if (m[i] === m[i + 1]) {
+                    if (d[i] > d[i + 1]) {
+                        x(i);
+                        iterations++;
+                    }   
+                }
+            }
+        }
+        if (iterations !== 0) {
+            bs();
+        }
+    })();
+    
+    for ( var i = 0; i < a.length; i++) {
+        console.log(d[i] + "/" + m[i] + "/" + a[i]);
+    }
+
+})();

@@ -15,3 +15,119 @@ IP para descobrir o dispositivo e a porta para discobrir qual a aplicação
 UDP - usa soquete
       soquete define o par de pares ip-portaorigem ip-portadestino
       quando voce cria um soquete voce cria uma conexão
+
+-----------------------------------------------------------------------------
+
+pré prova:
+
+Cliente
+
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using LibUDP;
+
+namespace WindowsFormsApp1
+{
+    public partial class Form1 : Form
+    {
+        private UDPSocket socket;
+
+        public Form1()
+        {
+            InitializeComponent();
+
+            socket = new UDPSocket(MensagemRecebida, 6000);
+        }
+
+        private void Enviar()
+        {
+            byte[] bytes = new byte[10];
+
+            bytes[0] = byte.Parse(txt0.Text);
+            bytes[1] = byte.Parse(txt0.Text);
+            bytes[2] = byte.Parse(txt0.Text);
+            bytes[3] = byte.Parse(txt0.Text);
+            bytes[4] = byte.Parse(txt0.Text);
+            bytes[5] = byte.Parse(txt0.Text);
+            bytes[6] = byte.Parse(txt0.Text);
+            bytes[7] = byte.Parse(txt0.Text);
+            bytes[8] = byte.Parse(txt0.Text);
+            bytes[9] = byte.Parse(txt0.Text);
+
+            socket.Send(bytes, txtIP.Text, 6001);
+        }
+
+        private void MensagemRecebida(byte[] buffer, int size, string ip, int port)
+        {
+            txt0.Text = buffer[0].ToString();
+            txt0.Text = buffer[1].ToString();
+            txt0.Text = buffer[2].ToString();
+            txt0.Text = buffer[3].ToString();
+            txt0.Text = buffer[4].ToString();
+            txt0.Text = buffer[5].ToString();
+            txt0.Text = buffer[6].ToString();
+            txt0.Text = buffer[7].ToString();
+            txt0.Text = buffer[8].ToString();
+            txt0.Text = buffer[9].ToString();
+        }
+    }
+}
+
+
+
+Servidor
+
+
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using LibUDP;
+
+namespace WindowsFormsApp1
+{
+    public partial class Form1 : Form
+    {
+        private UDPSocket socket;
+
+        public Form1()
+        {
+            InitializeComponent();
+
+            socket = new UDPSocket(MensagemRecebida, 6001);
+        }
+
+        private void MensagemRecebida(byte[] buffer, int size, string ip, int port) {
+            int media = 0;
+            for (int i = 0; i < 10; i++) {
+                media = media + buffer[i];
+            }
+            media = media / 10;
+
+            byte[] bytes = new byte[10];
+            for (int i = 0; i < 10; i++) {
+                if (buffer[i] < media) {
+                    bytes[i] = 0;
+                } else {
+                    bytes[i] = buffer[i];
+                }
+            }
+
+            socket.Send(bytes, ip, port);
+        }
+    }
+}

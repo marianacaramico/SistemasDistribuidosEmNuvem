@@ -52,15 +52,15 @@ namespace WindowsFormsApp1
             byte[] bytes = new byte[10];
 
             bytes[0] = byte.Parse(txt0.Text);
-            bytes[1] = byte.Parse(txt0.Text);
-            bytes[2] = byte.Parse(txt0.Text);
-            bytes[3] = byte.Parse(txt0.Text);
-            bytes[4] = byte.Parse(txt0.Text);
-            bytes[5] = byte.Parse(txt0.Text);
-            bytes[6] = byte.Parse(txt0.Text);
-            bytes[7] = byte.Parse(txt0.Text);
-            bytes[8] = byte.Parse(txt0.Text);
-            bytes[9] = byte.Parse(txt0.Text);
+            bytes[1] = byte.Parse(txt1.Text);
+            bytes[2] = byte.Parse(txt2.Text);
+            bytes[3] = byte.Parse(txt3.Text);
+            bytes[4] = byte.Parse(txt4.Text);
+            bytes[5] = byte.Parse(txt5.Text);
+            bytes[6] = byte.Parse(txt6.Text);
+            bytes[7] = byte.Parse(txt7.Text);
+            bytes[8] = byte.Parse(txt8.Text);
+            bytes[9] = byte.Parse(txt9.Text);
 
             socket.Send(bytes, txtIP.Text, 6001);
         }
@@ -68,15 +68,15 @@ namespace WindowsFormsApp1
         private void MensagemRecebida(byte[] buffer, int size, string ip, int port)
         {
             txt0.Text = buffer[0].ToString();
-            txt0.Text = buffer[1].ToString();
-            txt0.Text = buffer[2].ToString();
-            txt0.Text = buffer[3].ToString();
-            txt0.Text = buffer[4].ToString();
-            txt0.Text = buffer[5].ToString();
-            txt0.Text = buffer[6].ToString();
-            txt0.Text = buffer[7].ToString();
-            txt0.Text = buffer[8].ToString();
-            txt0.Text = buffer[9].ToString();
+            txt1.Text = buffer[1].ToString();
+            txt2.Text = buffer[2].ToString();
+            txt3.Text = buffer[3].ToString();
+            txt4.Text = buffer[4].ToString();
+            txt5.Text = buffer[5].ToString();
+            txt6.Text = buffer[6].ToString();
+            txt7.Text = buffer[7].ToString();
+            txt8.Text = buffer[8].ToString();
+            txt9.Text = buffer[9].ToString();
         }
     }
 }
